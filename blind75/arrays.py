@@ -35,6 +35,17 @@ class Solution:
                     if nums[i] + nums[j] == target:
                         return [i,j]
                 j += 1
+
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        anagrams = {}
+        for s in strs:
+            key = ''.join(sorted(s))
+            if key not in anagrams:
+                anagrams[key] = []
+            anagrams[key].append(s)
+        return list(anagrams.values())
+
+
 # Example usage
 object = Solution()
 print(object.hasDuplicate([1, 2, 3, 4, 5]))  # False
@@ -42,4 +53,6 @@ print(object.hasDuplicate([1, 2, 3, 4, 5, 1]))  # True
 print(object.isAnagram("anagram", "nagaram"))  # True
 print(object.isAnagram("rat", "car"))  # False
 print(object.twoSumt([4,5,6], 10))  # [0, 1]
-print(object.twoSumt([4,5,6], 10))  # [0, 1]  
+print(object.twoSum([4,5,6], 10))  # [0, 1]  
+print(object.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))  # [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
+print(object.groupAnagrams(["x"]))  # [['x']]        
