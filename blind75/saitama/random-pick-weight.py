@@ -22,8 +22,6 @@ class Solution:
         idx = bisect.bisect_left(self.prefix_sums, target)
         return idx
 
-
-
 # Your Solution object will be instantiated and called as such:
 w = [1, 3]
 obj = Solution(w)
