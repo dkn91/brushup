@@ -15,7 +15,7 @@ class Solution:
             
             left = dfs(node.left)
             right = dfs(node.right)
-            
+            print(left, right)
             # Diameter passing through this node
             self.diameter = max(self.diameter, left + right)
             
@@ -24,3 +24,11 @@ class Solution:
         
         dfs(root)
         return self.diameter
+
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+print(Solution().diameterOfBinaryTree(root))  # Output: 3
